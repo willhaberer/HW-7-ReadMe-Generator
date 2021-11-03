@@ -7,11 +7,6 @@ inquirer
   .prompt([
     {
       type: "input",
-      message: "Please enter the name of the creator",
-      name: "name",
-    },
-    {
-      type: "input",
       message: "What is the name of the project?",
       name: "projectName",
     },
@@ -22,8 +17,23 @@ inquirer
     },
     {
       type: "input",
-      message: "Why was this project built?",
-      name: "reason",
+      message: "What is the installation process for your project",
+      name: "installation",
+    },
+    {
+      type: "input",
+      message: "How can someone use your project",
+      name: "usage",
+    },
+    {
+      type: "input",
+      message: "Who is credited on this project",
+      name: "credits",
+    },
+    {
+      type: "input",
+      message: "How is this project licensed?",
+      name: "license",
     },
   ])
   .then((response) => {
