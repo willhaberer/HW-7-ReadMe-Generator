@@ -12,13 +12,19 @@ inquirer
     },
     {
       type: "input",
-      message: "Please describe the project",
+      message:
+        "Please describe the project (include motivation, the problem you wanted to solve, and what you learned",
       name: "description",
     },
     {
       type: "input",
       message: "What is the installation process for your project",
       name: "installation",
+    },
+    {
+      type: "input",
+      message: "Enter the path to a screenshot of the project",
+      name: "imagePath",
     },
     {
       type: "input",
@@ -38,22 +44,25 @@ inquirer
   ])
   .then((response) => {
     console.log(response);
+    writeToFile("README.md", response);
   });
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  const { projectName, description, installation, usage, credits, license } =
-    data;
+  const {
+    projectName,
+    description,
+    installation,
+    usage,
+    credits,
+    license,
+    imagePath,
+  } = data;
   fs.writeFile(
-    "README.md",
+    fileName,
     `# ${projectName}
-    ## Description
-    Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-    - What was your motivation?
-    - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-    - What problem does it solve?
-    - What did you learn?
-    ## Table of Contents (Optional)
-    If your README is long, add a table of contents to make it easy for users to find what they need.
+    ## ${description}
+    ## Table of Contents 
     - [Installation](#installation)
     - [Usage](#usage)
     - [Credits](#credits)
@@ -62,8 +71,9 @@ function writeToFile(fileName, data) {
     What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
     ## Usage
     Provide instructions and examples for use. Include screenshots as needed.
-    To add a screenshot, create an folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-        
+   
+    <img src=${imagePath}>
+    
     ## Credits
     List your collaborators, if any, with links to their GitHub profiles.
     If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
@@ -72,7 +82,7 @@ function writeToFile(fileName, data) {
     The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
     ---
     `,
-    (err) => (err ? console.error(err) : console.log("README logged!"))
+    (err) => (err ? console.error(err) : console.log("README written!"))
   );
 }
 
