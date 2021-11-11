@@ -38,9 +38,17 @@ const questions = [
     name: "credits",
   },
   {
-    type: "input",
-    message: "How is this project licensed?",
+    type: "list",
+    message: "Choose a license for this project.",
     name: "license",
+    choices: [
+      "Creative Commons",
+      "MIT",
+      "Mozilla Public License",
+      "Apache License",
+      "The Unlicense",
+      "Boost Software License",
+    ],
   },
 ];
 
