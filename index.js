@@ -3,49 +3,45 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 // TODO: Create an array of questions for user input
-inquirer
-  .prompt([
-    {
-      type: "input",
-      message: "What is the name of the project?",
-      name: "projectName",
-    },
-    {
-      type: "input",
-      message:
-        "Please describe the project (include motivation, the problem you wanted to solve, and what you learned",
-      name: "description",
-    },
-    {
-      type: "input",
-      message: "What is the installation process for your project",
-      name: "installation",
-    },
-    {
-      type: "input",
-      message: "Enter the path to a screenshot of the project",
-      name: "imagePath",
-    },
-    {
-      type: "input",
-      message: "How can someone use your project",
-      name: "usage",
-    },
-    {
-      type: "input",
-      message: "Who is credited on this project",
-      name: "credits",
-    },
-    {
-      type: "input",
-      message: "How is this project licensed?",
-      name: "license",
-    },
-  ])
-  .then((response) => {
-    console.log(response);
-    writeToFile("README.md", response);
-  });
+
+const questions = [
+  {
+    type: "input",
+    message: "What is the name of the project?",
+    name: "projectName",
+  },
+  {
+    type: "input",
+    message:
+      "Please describe the project (include motivation, the problem you wanted to solve, and what you learned",
+    name: "description",
+  },
+  {
+    type: "input",
+    message: "What is the installation process for your project",
+    name: "installation",
+  },
+  {
+    type: "input",
+    message: "Enter the path to a screenshot of the project",
+    name: "imagePath",
+  },
+  {
+    type: "input",
+    message: "How can someone use your project",
+    name: "usage",
+  },
+  {
+    type: "input",
+    message: "Who is credited on this project",
+    name: "credits",
+  },
+  {
+    type: "input",
+    message: "How is this project licensed?",
+    name: "license",
+  },
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -73,7 +69,7 @@ function writeToFile(fileName, data) {
     Provide instructions and examples for use. Include screenshots as needed.
    
     <img src=${imagePath}>
-    
+
     ## Credits
     List your collaborators, if any, with links to their GitHub profiles.
     If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
@@ -88,6 +84,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {}
-
+console.log(response);
+writeToFile("README.md", response);
 // Function call to initialize app
 init();
