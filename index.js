@@ -24,11 +24,6 @@ const questions = [
   },
   {
     type: "input",
-    message: "Enter the path to a screenshot of the project",
-    name: "imagePath",
-  },
-  {
-    type: "input",
     message: "How can someone use your project",
     name: "usage",
   },
@@ -54,15 +49,8 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  const {
-    projectName,
-    description,
-    installation,
-    usage,
-    credits,
-    license,
-    imagePath,
-  } = data;
+  const { projectName, description, installation, usage, credits, license } =
+    data;
   fs.writeFile(
     fileName,
     `# ${projectName}
@@ -73,18 +61,14 @@ function writeToFile(fileName, data) {
     - [Credits](#credits)
     - [License](#license)
     ## Installation
-    What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+    ${installation}
     ## Usage
-    Provide instructions and examples for use. Include screenshots as needed.
-   
-    <img src=${imagePath}>
-
+    ${usage}
+    
     ## Credits
-    List your collaborators, if any, with links to their GitHub profiles.
-    If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-    If you followed tutorials, include links to those here as well.
+    ${credits}
     ## License
-    The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+    ${license}
     ---
     `,
     (err) => (err ? console.error(err) : console.log("README written!"))
@@ -95,7 +79,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then((response) => {
     console.log(response);
-    writeToFile("README.md", response);
+    writeToFile("GEN.md", response);
   });
 }
 // Function call to initialize app
