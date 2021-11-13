@@ -12,10 +12,13 @@ To use this application you can clone the GIT repository using the following lin
 
 ## Contributing
 
+This application was created by @willhaberer on Github.
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [MIT](https://choosealicense.com/licenses/mit/)
