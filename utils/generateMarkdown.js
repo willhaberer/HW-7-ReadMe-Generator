@@ -15,6 +15,8 @@ function renderLicenseBadge(license) {
     return "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
   } else if (license === "The Do What the Fuck You Want to Public License") {
     return "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)";
+  } else {
+    return "";
   }
 }
 
@@ -35,6 +37,8 @@ function renderLicenseLink(license) {
     return "https://www.boost.org/users/license.html";
   } else if (license === "The Do What the Fuck You Want to Public License") {
     return "http://www.wtfpl.net/";
+  } else {
+    return "";
   }
 }
 
