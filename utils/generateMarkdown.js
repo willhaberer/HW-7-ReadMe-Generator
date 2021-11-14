@@ -45,7 +45,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   return `
-  License: ${license}${renderLicenseBadge(license)}
+  ${license}${renderLicenseBadge(license)}
   ${renderLicenseLink(license)}
   `;
 }
