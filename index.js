@@ -50,30 +50,14 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  const { projectName, description, installation, usage, credits, license } =
-    data;
-  fs.writeFile(
-    fileName,
-    `# ${projectName}
-    ## ${description}
-    ## Table of Contents 
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
-    ## Installation
-    ${installation}
-    ## Usage
-    ${usage}
-
-    ## Credits
-    ${credits}
-    ## License
-    ${license}
-    ---
-    `,
-    (err) => (err ? console.error(err) : console.log("README written!"))
-  );
+  fs.writeFile(fileName, gMarkdown(data), (err) => {
+    if (err) {
+      console.log("Error before gMarkdown began");
+      throw err;
+    } else {
+      console.log("gMarkdown begins");
+    }
+  });
 }
 
 // Create a function to initialize app
