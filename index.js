@@ -43,6 +43,7 @@ const questions = [
       "Apache License",
       "The Unlicense",
       "Boost Software License",
+      "The Do What the Fuck You Want to Public License",
     ],
   },
 ];
@@ -64,7 +65,7 @@ function writeToFile(fileName, data) {
     ${installation}
     ## Usage
     ${usage}
-    
+
     ## Credits
     ${credits}
     ## License
@@ -78,7 +79,6 @@ function writeToFile(fileName, data) {
 // Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((response) => {
-    console.log(response);
     writeToFile("GEN.md", response);
   });
 }
