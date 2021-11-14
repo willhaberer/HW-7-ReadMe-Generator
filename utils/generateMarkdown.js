@@ -1,4 +1,3 @@
-const fs = require("fs");
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === "Creative Commons") {
@@ -48,11 +47,7 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const { projectName, description, installation, usage, credits, license } =
-    data;
-  fs.writeFile(
-    fileName,
-    `# ${projectName}
+  `# ${projectName}
     ## ${description}
     ## Table of Contents 
     - [Installation](#installation)
@@ -69,9 +64,7 @@ function generateMarkdown(data) {
     ## License
     ${license}
     ---
-    `,
-    (err) => (err ? console.error(err) : console.log("README written!"))
-  );
+    `;
 }
 
 module.exports = generateMarkdown;
